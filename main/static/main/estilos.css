@@ -1,0 +1,52 @@
+.navbar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+}
+
+.transparent {
+  background-color: transparent !important;
+}
+
+.carousel-item {
+  height: 100vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+}
+
+.divider {
+  border-top: 2px solid #fff;
+  border-radius: 2px;
+  width: 10%;
+  max-width: 40px;
+}
+
+.container-fluid {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+#nosotros {
+
+}
+
+#productos {
+  background-image: url('images/fondo_madera.jpg');
+  color: #fff;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+#productos .card-deck {
+  color: initial;
+}
+
+#pedido {
+  background-color: rgb(73, 73, 73);
+  color: #fff;
+}

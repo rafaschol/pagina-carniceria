@@ -1,0 +1,134 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'main/images/logo.png' %}" width="50" alt="logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navegacion">
+      <ul class="navbar-nav m-auto text-uppercase font-weight-bold">
+        <li class="nav-item">
+          <a class="nav-link" href="#inicio">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#nosotros">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#productos">Nuestros producto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pedido">Hacé tu pedido</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Slider -->
+  <header>
+    <div id="carouselImagenes" class="carousel slide carousel-fade" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide1.jpg' %}); background-position: 27% center;">
+          <div class="carousel-caption mb-5">
+            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <hr class="divider">
+            <p class="lead">Of the world</p>
+            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide2.jpg' %})">
+          <div class="carousel-caption mb-5">
+            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <hr class="divider">
+            <p class="lead">Of the world</p>
+            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+          </div>
+        </div>
+      <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide3.jpg' %})">
+          <div class="carousel-caption mb-5">
+            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <hr class="divider">
+            <p class="lead">Of the world</p>
+            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselImagenes" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </a>
+      <a class="carousel-control-next" href="#carouselImagenes" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </a>
+    </div>
+  </header>
+
+  <section class="container-fluid text-center" id="nosotros">
+    <h3>Sobre nosotros</h3>
+    <div class="row">
+      <div class="col-sm-8 d-flex align-items-center">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi distinctio, ex perferendis corporis qui, magnam saepe facilis nulla soluta quas consequuntur doloremque magni rem? Porro quibusdam ad expedita nemo! Illo!</p>
+      </div>
+      <div class="col-sm-4 d-flex align-items-center">
+        <img class="img-fluid rounded" src="{% static 'main/images/foto1.jpg' %}" alt="foto">
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid text-center" id="productos">
+    <h3>Productos</h3>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
+    <div class="card-deck">
+      <div class="card border-dark">
+        <img class="card-img-top" src="{% static 'main/images/asado.jpg' %}" alt="asado">
+        <div class="card-body">
+          <h5 class="card-title">Asado</h5>
+          <h6 class="card-subtitle text-muted">$389</h6>
+        </div>
+      </div>
+      <div class="card border-dark">
+        <img class="card-img-top" src="{% static 'main/images/colita_de_cuadril.jpg' %}" alt="colita">
+        <div class="card-body">
+          <h5 class="card-title">Colita de cuadril</h5>
+          <h6 class="card-subtitle text-muted">$419</h6>
+        </div>
+      </div>
+      <div class="card border-dark">
+        <img class="card-img-top" src="{% static 'main/images/carne_picada.jpg' %}" alt="carne picada">
+        <div class="card-body">
+          <h5 class="card-title">Carne picada</h5>
+          <h6 class="card-subtitle text-muted">$289</h6>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="container-fluid text-center" id="pedido">
+    <h3>Hacé tu pedido</h3>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
+  </section>
+  <footer class="container-fluid text-center bg-dark text-white">
+    <p>© 2020 Copyright</p>
+  </footer>
+
+  <!-- <main>
+    <section id="nosotros"></section>
+    <section id="productos"></section>
+    <section id="pedido"></section>
+  </main>
+  <footer></footer> -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
