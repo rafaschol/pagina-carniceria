@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -86,33 +85,45 @@
       </div>
     </div>
   </section>
-  <section class="container-fluid text-center" id="productos">
-    <h3>Productos</h3>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
-    <div class="card-deck">
-      <div class="card border-dark">
-        <img class="card-img-top" src="{% static 'main/images/asado.jpg' %}" alt="asado">
-        <div class="card-body">
-          <h5 class="card-title">Asado</h5>
-          <h6 class="card-subtitle text-muted">$389</h6>
-        </div>
+  {% block content %}
+    <section class="container-fluid text-center" id="productos">
+      <h3>Productos</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
+      {% if Destacados %}
+        <div class="card-deck">
+          {% for d in Destacados %}
+          
+            <div class="card border-dark" >
+              <img class="card-img-top" src={% if d.imagen %}"{{d.imagen.url}}"  {% else %} "" {% endif %} alt="{{d.nombre}}">
+              <div class="card-body>
+                <h5 class="card-title" >{{d.nombre}}</h5>
+                <h6 class="card-subtitle text-muted">${{d.precio}}</h6>
+              </div>
+            </div>
+
+        {% endfor %}
+        {% comment %}
+          <div class="card border-dark">
+            <img class="card-img-top" src="{% static 'main/images/colita_de_cuadril.jpg' %}" alt="colita">
+            <div class="card-body" style="background-color: rgba(255,255,255,.5);">
+              <h5 class="card-title">Colita de cuadril</h5>
+              <h6 class="card-subtitle text-muted">$419</h6>
+            </div>
+          </div>
+          <div class="card border-dark">
+            <img class="card-img-top" src="{% static 'main/images/carne_picada.jpg' %}" alt="carne picada">
+            <div class="card-body">
+              <h5 class="card-title">Carne picada</h5>
+              <h6 class="card-subtitle text-muted">$289</h6>
+            </div>
+          </div>
+        {% endcomment %}
       </div>
-      <div class="card border-dark">
-        <img class="card-img-top" src="{% static 'main/images/colita_de_cuadril.jpg' %}" alt="colita">
-        <div class="card-body">
-          <h5 class="card-title">Colita de cuadril</h5>
-          <h6 class="card-subtitle text-muted">$419</h6>
-        </div>
-      </div>
-      <div class="card border-dark">
-        <img class="card-img-top" src="{% static 'main/images/carne_picada.jpg' %}" alt="carne picada">
-        <div class="card-body">
-          <h5 class="card-title">Carne picada</h5>
-          <h6 class="card-subtitle text-muted">$289</h6>
-        </div>
-      </div>
-    </div>
+      <br> 
+      <button type="button" class="btn btn-danger rounded-pill">Ver más</button>
+      {% endif %}
   </section>
+  {% endblock %}
   <section class="container-fluid text-center" id="pedido">
     <h3>Hacé tu pedido</h3>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
