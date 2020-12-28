@@ -9,12 +9,13 @@ class Categoria(models.Model):
     class Meta:
         ordering = ['nombre']
     
-    def _str_(self):
-        return '%s' % (self.nombre)
+    def __str__(self):
+        return self.nombre
+
+    def texto_etiqueta(self):
+        return self.nombre.replace(' ', '_').lower()
 
 
-
-# Create your models here.
 class Producto(models.Model):
     nombre = models.CharField(max_length=40)
     imagen = models.ImageField(upload_to=nombre_imagen_producto,blank=True,null=True)
@@ -23,6 +24,6 @@ class Producto(models.Model):
 
     class Meta:
         ordering = ['nombre']
-    def __str__(self):
-        return '%s' % (self.nombre)
 
+    def __str__(self):
+        return self.nombre

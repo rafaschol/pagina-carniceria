@@ -27,7 +27,7 @@
           <a class="nav-link" href="#nosotros">Nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#productos">Nuestros producto</a>
+          <a class="nav-link" href="#productos">Nuestros productos</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#pedido">Hacé tu pedido</a>
@@ -74,7 +74,7 @@
     </div>
   </header>
 
-  <section class="container-fluid text-center" id="nosotros">
+  <section class="container-fluid text-center px-sm-5" id="nosotros">
     <h3>Sobre nosotros</h3>
     <div class="row">
       <div class="col-sm-8 d-flex align-items-center">
@@ -86,21 +86,19 @@
     </div>
   </section>
   {% block content %}
-    <section class="container-fluid text-center" id="productos">
+    <section class="container-fluid text-center px-sm-5" id="productos">
       <h3>Productos</h3>
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
-      {% if Destacados %}
+      {% if destacados %}
         <div class="card-deck">
-          {% for d in Destacados %}
-          
-            <div class="card border-dark" >
+          {% for d in destacados %}
+            <div class="card border-dark">
               <img class="card-img-top" src={% if d.imagen %}"{{d.imagen.url}}"  {% else %} "" {% endif %} alt="{{d.nombre}}">
-              <div class="card-body>
+              <div class="card-body">
                 <h5 class="card-title" >{{d.nombre}}</h5>
                 <h6 class="card-subtitle text-muted">${{d.precio}}</h6>
               </div>
             </div>
-
         {% endfor %}
         {% comment %}
           <div class="card border-dark">
@@ -124,11 +122,11 @@
       {% endif %}
   </section>
   {% endblock %}
-  <section class="container-fluid text-center" id="pedido">
+  <section class="container-fluid text-center px-sm-5" id="pedido">
     <h3>Hacé tu pedido</h3>
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
   </section>
-  <footer class="container-fluid text-center bg-dark text-white">
+  <footer class="container-fluid text-center bg-dark text-white px-sm-5">
     <p>© 2020 Copyright</p>
   </footer>
 

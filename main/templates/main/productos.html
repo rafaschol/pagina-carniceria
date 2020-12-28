@@ -43,64 +43,67 @@
       </ul>
     </div>
   </nav>
-  <section style="padding:6em;">
+
+  <section class="container-fluid text-center px-sm-5">
     <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a style="color:grey;" href="#">Inicio</a></li>
-          <li class="breadcrumb-item active" style="color:#bc648a;" aria-current="page">Productos</li>
-        </ol>
-      </nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a style="color:grey;" href="#">Inicio</a></li>
+        <li class="breadcrumb-item active" style="color:#bc648a;" aria-current="page">Productos</li>
+      </ol>
+    </nav>
     <h1>Productos</h1>
-    {% block content %}
-    {% if Productos %}
-        <div class="panel panel-info">
-            <div class="panel-heading btn btn-primary" style="background-color:transparent;color:grey;border:none;">
-                <i class="fas fa-filter"></i>
-             <a fas fa-filter data-toggle="collapse" style="color:grey" data-target="#filtrosArea" href="javascript:void(0);" aria-expanded="false">
-               Filtrar productos</a>
-            </div>
-        </div>
-        <div id="filtrosArea" style="padding-right:20%;padding-left:10%;" class="collapse">
-            <hr>
-            <div class="panel panel-body">
-                <h5>Categorias:</h5>
-            </div>
-            <hr>
-        </div>
-        <div class="row">
+      {% if productos %}
+      <!--<div class="row">-->
+        <ul class="nav nav-tabs" id="categorias" role="tablist">
+          {% for categoria in productos %}          
+          <li class="nav-item">
+            <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{categoria.nombre}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+
+        <div class="tab-content" id="contenido">
+          {% for categoria, valor in productos.items %}
+          <div class="container-fluid tab-pane fade {% if forloop.first %}show active{% endif %} px-sm-5" id="{{categoria.texto_etiqueta}}" role="tabpanel" aria-labelledby="{{categoria.texto_etiqueta}}-tab">
+            {% if valor %}
             <div class="card-deck">
-                {% for p in Productos %}
-                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                        <div class="card border-dark" >
-                            <img class="card-img-top" src={% if p.imagen %}"{{p.imagen.url}}"  {% else %} "" {% endif %} alt="{{p.nombre}}">
-                            <div class="card-body>
-                              <h5 class="card-title" >{{p.nombre}}</h5>
-                              <h6 class="card-subtitle text-muted">${{p.precio}}</h6>
-                            </div>
-                        </div>
-                    </div>
-                {% endfor %}
+            <!--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 card-deck">-->
+              {% for producto in valor %}
+              <div class="card border-dark" >
+                <img class="card-img-top" src="{{producto.imagen.url}}" alt="{{producto.nombre}}">
+                <div class="card-body">
+                  <h5 class="card-title">{{producto.nombre}}</h5>
+                  <h6 class="card-subtitle text-muted">${{producto.precio}}</h6>
+                </div>
+              </div>
+              {% endfor %}
             </div>
+            {% endif %}
+          </div>
+          {% endfor %}
         </div>
 
-
+        <!-- <div class="card-deck">
+          {% for p in productos %}
+          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+            <div class="card border-dark" >
+              <img class="card-img-top" src="{{p.imagen.url}}" alt="{{p.nombre}}">
+              <div class="card-body">
+                <h5 class="card-title">{{p.nombre}}</h5>
+                <h6 class="card-subtitle text-muted">${{p.precio}}</h6>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div> -->
+      <!--</div>-->
     {% endif %}
-    {% endblock %}
-
   </section>
-
-
 
   <footer class="container-fluid text-center bg-dark text-white">
     <p>© 2020 Copyright</p>
   </footer>
 
-  <!-- <main>
-    <section id="nosotros"></section>
-    <section id="productos"></section>
-    <section id="pedido"></section>
-  </main>
-  <footer></footer> -->
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
