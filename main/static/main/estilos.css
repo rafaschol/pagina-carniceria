@@ -1,3 +1,6 @@
+section{
+  padding:30%;
+}
 .navbar {
   position: absolute;
   top: 0;
@@ -26,6 +29,14 @@
   max-width: 40px;
 }
 
+
+.text-divider {
+  border-top: 2px solid #dc3545;
+  border-radius: 2px;
+  width: 30%;
+  max-width: 70px;
+}
+
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
@@ -47,7 +58,15 @@
   color: initial;
 }
 
-#pedido {
-  background-color: rgb(73, 73, 73);
+.bg-footer{
+  background-color:#191B1E;
+}
+#contacto {
+  background-color:#343a40;
   color: #fff;
+}
+
+h3{
+  font-family: "Montserrat", Sans-serif;
+  font-size:45px;
 }

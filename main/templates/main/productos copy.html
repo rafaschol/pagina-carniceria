@@ -57,7 +57,7 @@
         <ul class="nav nav-tabs" id="categorias" role="tablist">
           {% for categoria in productos %}          
           <li class="nav-item">
-            <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"><img src="{{categoria.icono.url}}" width="40px"> {{categoria.nombre}}</a>
+            <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">{{categoria.nombre}}</a>
           </li>
           {% endfor %}
         </ul>

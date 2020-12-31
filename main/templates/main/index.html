@@ -5,8 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
+  <link href=" {% static 'main/fontawesome/css/all.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
+  <style>
+  </style>
 </head>
 <body>
 
@@ -31,6 +34,9 @@
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#pedido">Hacé tu pedido</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contacto">Contáctanos</a>
         </li>
       </ul>
     </div>
@@ -74,20 +80,22 @@
     </div>
   </header>
 
-  <section class="container-fluid text-center px-sm-5" id="nosotros">
-    <h3>Sobre nosotros</h3>
+  <section class="container-fluid text-center px-sm-5 px-md-5" id="nosotros">
+    <h3>Sobre nosotros</h3><hr class="text-divider">
     <div class="row">
       <div class="col-sm-8 d-flex align-items-center">
-        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi distinctio, ex perferendis corporis qui, magnam saepe facilis nulla soluta quas consequuntur doloremque magni rem? Porro quibusdam ad expedita nemo! Illo!</p>
-      </div>
+        <div>
+          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi distinctio, ex perferendis corporis qui, magnam saepe facilis nulla soluta quas consequuntur doloremque magni rem? Porro quibusdam ad expedita nemo! Illo!</p>
+        </div>
+        </div>
       <div class="col-sm-4 d-flex align-items-center">
         <img class="img-fluid rounded" src="{% static 'main/images/foto1.jpg' %}" alt="foto">
       </div>
     </div>
   </section>
   {% block content %}
-    <section class="container-fluid text-center px-sm-5" id="productos">
-      <h3>Productos</h3>
+    <section class="container-fluid text-center px-sm-5 px-md-5" id="productos">
+      <h3>Productos</h3><hr class="text-divider">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
       {% if destacados %}
         <div class="card-deck">
@@ -122,13 +130,73 @@
       {% endif %}
   </section>
   {% endblock %}
-  <section class="container-fluid text-center px-sm-5" id="pedido">
-    <h3>Hacé tu pedido</h3>
+  <section class="container-fluid text-center px-sm-5 px-md-5" id="pedido">
+    <h3>Hacé tu pedido</h3><hr class="text-divider">
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
   </section>
-  <footer class="container-fluid text-center bg-dark text-white px-sm-5">
+  <section class="container-fluid text-center px-sm-5 px-md-5" id="contacto">
+    <h3>Contáctanos</h3><hr class="text-divider"><br>
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex.</p><br>
+        <ul style="list-style: none;">
+          <li><i class="fas fa-phone-alt" style="font-size:30px;"></i><p>  091666082</p></li>
+          <li><i class="far fa-compass" style="font-size:30px;"></i><p>Ruta 11, kilómetro 166</p></li>
+        </ul>
+        <br>
+        <form>
+          <div class="row">
+            <div class="col-md-4">
+              <label>Nombre</label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" placeholder="Nombre">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <label>Apellido</label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" placeholder="Apellido">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-md-4">
+              <label>Email</label>
+            </div>
+            <div class="col-md-4">
+              <input type="text" placeholder="Email">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-4">
+              <label>Mensaje</label>
+            </div>
+            <div class="col-md-4">
+              <textarea cols="40" rows="5" placeholder="Mensaje"></textarea>            
+            </div>
+          </div>
+          <br>
+          <div class="row">
+            <button type="button" class="btn btn-danger rounded-pill" style="margin:auto;" >Enviar</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-12 col-md-6" style="border-left-width: thin; border-left-style: solid;">
+        <i class="fal fa-skull-cow"></i>
+
+        <i class="fas fa-map-marker-alt" style="font-size: 50px;color:white"></i><br>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10893.334443326752!2d-55.7623314270204!3d-34.7602317028813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc50d487086ec8411!2sCarnicer%C3%ADa%20La%20Once!5e0!3m2!1ses-419!2suy!4v1609344680663!5m2!1ses-419!2suy" width="600" height="450" frameborder="0" style="margin-top:5%;border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      </div>
+    </div>
+  </section>
+  <div class="container-fluid text-center bg-footer text-white">
     <p>© 2020 Copyright</p>
-  </footer>
+  </div>
 
   <!-- <main>
     <section id="nosotros"></section>
