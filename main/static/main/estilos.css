@@ -1,7 +1,8 @@
 section{
   padding:30%;
 }
-.navbar {
+
+.navbar-absolute {
   position: absolute;
   top: 0;
   right: 0;
@@ -9,9 +10,9 @@ section{
   z-index: 1030;
 }
 
-.transparent {
+/*.transparent {
   background-color: transparent !important;
-}
+}*/
 
 .carousel-item {
   height: 100vh;
@@ -48,7 +49,7 @@ section{
 }
 
 #productos {
-  background-image: url('images/fondo_madera.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/fondo_madera.jpg');
   color: #fff;
   background-size: cover;
   background-attachment: fixed;
@@ -69,4 +70,12 @@ section{
 h3{
   font-family: "Montserrat", Sans-serif;
   font-size:45px;
+}
+
+#tabs-productos .nav-tabs {
+  border: 1px solid transparent;
+}
+
+#tabs-productos .nav-link {
+  border: 1px solid transparent;
 }

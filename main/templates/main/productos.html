@@ -19,7 +19,8 @@
 <body>
 
   <!-- Navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-3" style="position: relative;background-color: #343a40;">
+  {% include 'main/navegacion.html' with links_abs='si' %}
+  {% comment %} <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: relative">
     <a class="navbar-brand" href="#">
       <img src="{% static 'main/images/logo.png' %}" width="50" alt="logo">
     </a>
@@ -42,22 +43,25 @@
         </li>
       </ul>
     </div>
-  </nav>
+  </nav> {% endcomment %}
 
   <section class="container-fluid text-center px-sm-5">
     <nav aria-label="breadcrumb">
       <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a style="color:grey;" href="#">Inicio</a></li>
+        <li class="breadcrumb-item"><a style="color:grey;" href="{% url 'index' %}">Inicio</a></li>
         <li class="breadcrumb-item active" style="color:#bc648a;" aria-current="page">Productos</li>
       </ol>
     </nav>
-    <h1>Productos</h1>
+    <h1 class="my-4">Productos</h1>
       {% if productos %}
-      <!--<div class="row">-->
-        <ul class="nav nav-tabs" id="categorias" role="tablist">
+      <div id="tabs-productos">
+        <ul class="nav nav-tabs flex-column flex-sm-row" id="categorias" role="tablist">
           {% for categoria in productos %}          
           <li class="nav-item">
-            <a class="nav-link {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}"><img src="{{categoria.icono.url}}" width="40px"> {{categoria.nombre}}</a>
+            <a class="nav-link flex-sm-fill text-sm-center {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+              <img src="{{categoria.icono.url}}" width="40px">
+              {{categoria.nombre}}
+            </a>
           </li>
           {% endfor %}
         </ul>
@@ -78,6 +82,8 @@
               </div>
               {% endfor %}
             </div>
+            {% else %}
+            <p>No hay nada que ver por aquí...</p>
             {% endif %}
           </div>
           {% endfor %}
@@ -96,7 +102,7 @@
           </div>
           {% endfor %}
         </div> -->
-      <!--</div>-->
+      </div>
     {% endif %}
   </section>
 

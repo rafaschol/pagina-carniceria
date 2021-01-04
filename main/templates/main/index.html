@@ -14,16 +14,18 @@
 <body>
 
   <!-- Navegación -->
-  <nav class="navbar navbar-expand-lg navbar-dark py-3">
+  {% include 'main/navegacion.html' with posicion='navbar-absolute' links_abs='no' %}
+  {% comment %} <nav class="navbar navbar-absolute navbar-expand-lg navbar-light bg-light">
+    <div class="container">
     <a class="navbar-brand" href="#">
-      <img src="{% static 'main/images/logo.png' %}" width="50" alt="logo">
+      <img src="{% static 'main/images/logo_v2.png' %}" height="50" alt="logo">
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navegacion">
-      <ul class="navbar-nav m-auto text-uppercase font-weight-bold">
-        <li class="nav-item">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
           <a class="nav-link" href="#inicio">Inicio</a>
         </li>
         <li class="nav-item">
@@ -40,7 +42,8 @@
         </li>
       </ul>
     </div>
-  </nav>
+    </div>
+  </nav> {% endcomment %}
 
   <!-- Slider -->
   <header>
@@ -80,6 +83,7 @@
     </div>
   </header>
 
+  <!-- Sección "Sobre nosotros" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="nosotros">
     <h3>Sobre nosotros</h3><hr class="text-divider">
     <div class="row">
@@ -93,6 +97,8 @@
       </div>
     </div>
   </section>
+
+  <!-- Sección "Productos" -->
   {% block content %}
     <section class="container-fluid text-center px-sm-5 px-md-5" id="productos">
       <h3>Productos</h3><hr class="text-divider">
@@ -125,73 +131,81 @@
           </div>
         {% endcomment %}
       </div>
-      <br> 
-      <button type="button" class="btn btn-danger rounded-pill">Ver más</button>
+      <br>
+      <a class="btn btn-danger rounded-pill" href="{% url 'productos' %}" role="button">Ver más</a>
       {% endif %}
   </section>
   {% endblock %}
+
+  <!-- Sección "Hacé tu pedido" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="pedido">
     <h3>Hacé tu pedido</h3><hr class="text-divider">
     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
   </section>
+
+  <!-- Sección "Contactanos" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="contacto">
-    <h3>Contáctanos</h3><hr class="text-divider"><br>
+    <h3>Contactanos</h3><hr class="text-divider"><br>
     <div class="row">
-      <div class="col-sm-12 col-md-6">
+      <div class="col-sm-12 col-md-6 py-3">
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex.</p><br>
-        <ul style="list-style: none;">
+        <!-- <ul style="list-style: none;">
           <li><i class="fas fa-phone-alt" style="font-size:30px;"></i><p>  091666082</p></li>
           <li><i class="far fa-compass" style="font-size:30px;"></i><p>Ruta 11, kilómetro 166</p></li>
         </ul>
-        <br>
-        <form>
-          <div class="row">
-            <div class="col-md-4">
-              <label>Nombre</label>
-            </div>
-            <div class="col-md-4">
-              <input type="text" placeholder="Nombre">
-            </div>
-          </div>
+        <br> -->
+        <form class="text-left">
+          <div class="form-row">
 
-          <div class="row">
-            <div class="col-md-4">
-              <label>Apellido</label>
+            <div class="form-group col-md-6">
+              <label for="fnombre">Nombre</label>
+              <input type="text" class="form-control" id="fnombre" placeholder="Nombre">
+            </div>            
+
+            <div class="form-group col-md-6">
+              <label for="fapellido">Apellido</label>
+              <input type="text" class="form-control" id="fapellido" placeholder="Apellido">
             </div>
-            <div class="col-md-4">
-              <input type="text" placeholder="Apellido">
-            </div>
+
           </div>
           
-          <div class="row">
-            <div class="col-md-4">
-              <label>Email</label>
-            </div>
-            <div class="col-md-4">
-              <input type="text" placeholder="Email">
-            </div>
+          
+          <div class="form-group">
+            <label for="fmail">Email</label>
+            <input type="email" class="form-control" id="fmail" placeholder="Email">
           </div>
 
-          <div class="row">
-            <div class="col-md-4">
-              <label>Mensaje</label>
-            </div>
-            <div class="col-md-4">
-              <textarea cols="40" rows="5" placeholder="Mensaje"></textarea>            
-            </div>
+          <div class="form-group">
+            <label for="fmensaje">Mensaje</label>
+            <textarea class="form-control" id="fmensaje" cols="40" rows="5" placeholder="Mensaje"></textarea>            
           </div>
-          <br>
-          <div class="row">
-            <button type="button" class="btn btn-danger rounded-pill" style="margin:auto;" >Enviar</button>
+
+          <!-- <br> -->
+          <!-- <div class="row"> -->
+            <!-- <button type="button" class="btn btn-danger rounded-pill" style="margin:auto;" >Enviar</button> -->
+          <!-- </div> -->
+          <div class="form-row text-center">
+            <div class="col-12">
+              <button type="submit" class="btn btn-danger">Enviar</button>
+            </div>
           </div>
         </form>
       </div>
-      <div class="col-sm-12 col-md-6" style="border-left-width: thin; border-left-style: solid;">
-        <i class="fal fa-skull-cow"></i>
 
-        <i class="fas fa-map-marker-alt" style="font-size: 50px;color:white"></i><br>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10893.334443326752!2d-55.7623314270204!3d-34.7602317028813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc50d487086ec8411!2sCarnicer%C3%ADa%20La%20Once!5e0!3m2!1ses-419!2suy!4v1609344680663!5m2!1ses-419!2suy" width="600" height="450" frameborder="0" style="margin-top:5%;border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+      <div class="col-sm-12 col-md-6 py-3" style="border-left-width: thin; border-left-style: solid;">
+        
+        <p><i class="fas fa-phone-alt fa-lg"></i> 091 666 082</p>
+        <p><i class="fas fa-map-marker-alt fa-lg"></i> Ruta 11, km. 166</p>
+        
+
+        <!-- <i class="fal fa-skull-cow"></i> -->
+        <!-- <i class="fas fa-map-marker-alt" style="font-size: 50px;color:white"></i><br> -->
+        
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe class="embed-responsive-item" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d10893.334443326752!2d-55.7623314270204!3d-34.7602317028813!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc50d487086ec8411!2sCarnicer%C3%ADa%20La%20Once!5e0!3m2!1ses-419!2suy!4v1609344680663!5m2!1ses-419!2suy"></iframe>
+        </div>
       </div>
+
     </div>
   </section>
   <div class="container-fluid text-center bg-footer text-white">
