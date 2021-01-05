@@ -7,7 +7,7 @@
         display:inline-block;
         text-decoration: none;
         font-weight: 400; 
-    }  
+    }
   </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,12 +55,13 @@
     <h1 class="my-4">Productos</h1>
       {% if productos %}
       <div id="tabs-productos">
-        <ul class="nav nav-tabs flex-column flex-sm-row" id="categorias" role="tablist">
-          {% for categoria in productos %}          
+        <ul class="nav nav-tabs nav-justified flex-column flex-sm-row" id="categorias" role="tablist">
+          {% for categoria in productos %} 
           <li class="nav-item">
             <a class="nav-link flex-sm-fill text-sm-center {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
-              <img src="{{categoria.icono.url}}" width="40px">
-              {{categoria.nombre}}
+              <img class="icono-active" src="{{categoria.icono_activo.url}}" width="40px">
+              <img class="icono-disabled" src="{{categoria.icono.url}}" width="40px">      
+              <p>{{categoria.nombre}}</p>
             </a>
           </li>
           {% endfor %}

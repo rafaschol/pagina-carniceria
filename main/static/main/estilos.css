@@ -49,7 +49,7 @@ section{
 }
 
 #productos {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('images/fondo_madera.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/fondo_madera.jpg');
   color: #fff;
   background-size: cover;
   background-attachment: fixed;
@@ -78,4 +78,39 @@ h3{
 
 #tabs-productos .nav-link {
   border: 1px solid transparent;
+}
+
+#tabs-productos .nav-link.active .icono-active {
+  display: initial;
+}
+
+#tabs-productos .nav-link.active .icono-disabled {
+  display: none;
+}
+
+#tabs-productos .nav-link:not(.active) .icono-active {
+  display: none;
+}
+
+#tabs-productos .nav-link:not(.active) .icono-disabled {
+  display: initial;
+}
+
+#boton-whatsapp {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 40px;
+  right: 40px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #999;
+  z-index: 100;
+}
+
+#icono-whatsapp {
+
 }

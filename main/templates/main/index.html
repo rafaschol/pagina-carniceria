@@ -15,35 +15,6 @@
 
   <!-- Navegación -->
   {% include 'main/navegacion.html' with posicion='navbar-absolute' links_abs='no' %}
-  {% comment %} <nav class="navbar navbar-absolute navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-    <a class="navbar-brand" href="#">
-      <img src="{% static 'main/images/logo_v2.png' %}" height="50" alt="logo">
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navegacion">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="#inicio">Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#nosotros">Nosotros</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#productos">Nuestros productos</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#pedido">Hacé tu pedido</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contacto">Contáctanos</a>
-        </li>
-      </ul>
-    </div>
-    </div>
-  </nav> {% endcomment %}
 
   <!-- Slider -->
   <header>
@@ -51,26 +22,26 @@
       <div class="carousel-inner">
         <div class="carousel-item active" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide1.jpg' %}); background-position: 27% center;">
           <div class="carousel-caption mb-5">
-            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <h2 class="display-4">Los mejores cortes</h2>
             <hr class="divider">
-            <p class="lead">Of the world</p>
-            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+            <p class="lead">Pedí de forma fácil y rápida los productos de más alta calidad del mercado.</p>
+            <a href="#nosotros" role="button" class="btn btn-danger mt-4 py-2 px-4 rounded-pill">Conocer más</a>
           </div>
         </div>
         <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide2.jpg' %})">
           <div class="carousel-caption mb-5">
-            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <h2 class="display-4">A la puerta de tu casa</h2>
             <hr class="divider">
-            <p class="lead">Of the world</p>
-            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+            <p class="lead">Te enviamos nuestros productos a todos los puntos de Atlántida, Las Toscas y Parque del Plata.</p>
+            <a href="https://wa.me/59891666082/?text=%C2%A1Hola!%20Quisiera%20pedir..." target="_blank" role="button" class="btn btn-danger mt-4 py-2 px-4 rounded-pill">Pedir por WhatsApp</a>
           </div>
         </div>
       <div class="carousel-item" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({% static 'main/images/slide3.jpg' %})">
           <div class="carousel-caption mb-5">
-            <h2 class="display-4">La mejor carne uruguaya</h2>
+            <h2 class="display-4">La mejor variedad en productos</h2>
             <hr class="divider">
-            <p class="lead">Of the world</p>
-            <button type="button" class="btn btn-danger mt-4 py-2 px-5 rounded-pill">Buy now!</button>
+            <p class="lead">Tenemos todo lo que necesitás para hacer de tu parrillada la más completa.</p>
+            <a href="#productos" role="button" class="btn btn-danger mt-4 py-2 px-4 rounded-pill">Ver los productos</a>
           </div>
         </div>
       </div>
@@ -83,15 +54,22 @@
     </div>
   </header>
 
+  <!-- Botón de WhatsApp -->
+  <!-- <a href="#" id="boton-whatsapp" target="_blank">
+    <i id="icono-whatsapp" class="fab fa-whatsapp"></i>
+  </a> -->
+
   <!-- Sección "Sobre nosotros" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="nosotros">
     <h3>Sobre nosotros</h3><hr class="text-divider">
     <div class="row">
       <div class="col-sm-8 d-flex align-items-center">
         <div>
-          <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi distinctio, ex perferendis corporis qui, magnam saepe facilis nulla soluta quas consequuntur doloremque magni rem? Porro quibusdam ad expedita nemo! Illo!</p>
+          <p><strong>Carnicería La Once</strong> se instaló en 2017 sobre la Ruta 11 cerca de la Ruta Interbalnearia, en una ubicación ideal para la población de los alrededores y los turistas que van de camino a sus vacaciones.</p>
+          <p>Nuestro equipo crece año a año, sobre las mismas bases que el primer día: dar una excelente atención a todos los clientes, priorizando en nuestro personal la calidad humana ante otros aspectos.</p>
+          <p>Nos centramos en ofrecer productos de calidad, por lo cuál somos proveedores de gran cantidad de restaurantes y servicios gastronómicos de la zona. La mayor muestra de lo que nuestro negocio representa, es la satisfacción de nuestros clientes.</p>
         </div>
-        </div>
+      </div>
       <div class="col-sm-4 d-flex align-items-center">
         <img class="img-fluid rounded" src="{% static 'main/images/foto1.jpg' %}" alt="foto">
       </div>
