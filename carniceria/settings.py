@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django_google_maps',
     'django.contrib.staticfiles',
     'main',
 ]
@@ -69,6 +70,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'carniceria.wsgi.application'
 
+GOOGLE_MAPS_API_KEY = 'AIzaSyDNUi-9drRmktFrlYCS3ykFMpTHlIZzvi8' 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases

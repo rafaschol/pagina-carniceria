@@ -45,9 +45,26 @@ section{
 .container-fluid {
   padding-top: 70px;
   padding-bottom: 70px;
-
 }
 
+.btntel{
+  width:8em;
+  font-size:25px;
+  font-weight: bold;
+  background-color:#aad3df;
+  border-radius:0.5em;
+  border:1px;
+  color:white;
+}
+.btnwhats{
+  width:8em;
+  font-weight: bold;
+  font-size:25px;
+  background-color:#25d366;
+  border:1px;
+  border-radius:0.5em;
+  color:white;
+}
 #nosotros {
 
 }
@@ -69,6 +86,11 @@ section{
 #contacto {
   background-color:#343a40;
   color: #fff;
+}
+
+.derecha{
+  position:absolute;
+  right:0px;
 }
 
 h3{

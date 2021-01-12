@@ -65,11 +65,11 @@
         <div>
           <p><strong>Carnicería La Once</strong> se instaló en 2017 sobre la Ruta 11 cerca de la Ruta Interbalnearia, en una ubicación ideal para la población de los alrededores y los turistas que van de camino a sus vacaciones.</p>
           <p>Nuestro equipo crece año a año, sobre las mismas bases que el primer día: dar una excelente atención a todos los clientes, priorizando en nuestro personal la calidad humana ante otros aspectos.</p>
-          <p>Nos centramos en ofrecer productos de calidad, por lo cuál somos proveedores de gran cantidad de restaurantes y servicios gastronómicos de la zona. La mayor muestra de lo que nuestro negocio representa, es la satisfacción de nuestros clientes.</p>
+          <p>Nos centramos en ofrecer productos de calidad, por lo cuál somos proveedores de gran cantidad de restaurantes y servicios gastronómicos de la zona. La mayor muestra de lo que nuestro negocio representa es la satisfacción de nuestros clientes.</p>
         </div>
       </div>
       <div class="col-sm-4 d-flex align-items-center">
-        <img class="img-fluid rounded" src="{% static 'main/images/foto1.jpg' %}" alt="foto">
+        <img class="img-fluid rounded img-thumbnail shadow" src="{% static 'main/images/foto1.jpg' %}" alt="foto">
       </div>
     </div>
   </section>
@@ -77,7 +77,7 @@
   <!-- Sección "Productos" -->
   {% block content %}
     <section class="container-fluid text-center px-sm-5 px-md-5" id="productos">
-      <h3>Productos</h3><hr class="text-divider">
+      <h3 class="fade-in" >Productos</h3><hr class="text-divider">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
       
       {% if destacados %}
@@ -197,15 +197,29 @@
   <!-- Sección "Hacé tu pedido" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="pedido">
     <h3>Hacé tu pedido</h3><hr class="text-divider">
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex, maiores nulla laboriosam unde ratione voluptate minus molestiae? Necessitatibus hic architecto amet commodi cupiditate, est omnis!</p>
+    <p><b>Realiza tu pedido</b>. Simplemente indicando los productos que deseés, la cantidad y el medio de pago te lo llevaremos a tu casa!<p>
+    <p>¡Aceptamos débito y crédito!</p>
+    <p>Puedes comunicarte con nosotros por llamada telefónica o por Whatsapp, nuestro horario de atención es de 8:00hs a 21:00 hs de Lunes a Sábado y 8:00hs a 14:00hs los Domingos. </p>
+    <p>A continuación, haz click en el medio de comunicación que deseés y serás redireccionado directamente a realizar el pedido.</p>
+    <div class="d-flex flex-row ">
+      <div class="col-md-6 col-sm-6 col-xs-12 d-flex justify-content-end">
+        <a href="tel:+59891666082" class="btntel"><i class="fas fa-phone-alt"></i></a>
+      </div>
+      <div class="col-md-6 col-sm-6 col-xs-12 d-flex justify-content-left">
+        <a href="https://api.whatsapp.com/send/?phone=59891666082&text=%C2%A1Hola%21+Quisiera+pedir...&app_absent=0"  class="btnwhats" width="33px" ><i class="fab fa-whatsapp" ></i> </a>
+      </div>
+    </div>
+    <br>
+    </p> ¡Si te encuentras dentro del rango de envío te lo llevamos directo a tu casa!</p>
+    <img class="img-responsive" src="{% static 'main/images/Envios.png' %}" style="max-width:650px;width:100%;" >
   </section>
 
   <!-- Sección "Contactanos" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="contacto">
-    <h3>Contactanos</h3><hr class="text-divider"><br>
+    <h3>Contáctanos</h3><hr class="text-divider"><br>
     <div class="row">
       <div class="col-sm-12 col-md-6 py-3">
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto rem non veniam recusandae, ex.</p><br>
+        <p>Realiza tu pedido o consulta.</p><br>
         <!-- <ul style="list-style: none;">
           <li><i class="fas fa-phone-alt" style="font-size:30px;"></i><p>  091666082</p></li>
           <li><i class="far fa-compass" style="font-size:30px;"></i><p>Ruta 11, kilómetro 166</p></li>
@@ -265,9 +279,7 @@
 
     </div>
   </section>
-  <div class="container-fluid text-center bg-footer text-white">
-    <p>© 2020 Copyright</p>
-  </div>
+  {% include 'main/footer.html' %}
 
   <!-- <main>
     <section id="nosotros"></section>
