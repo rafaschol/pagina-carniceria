@@ -8,8 +8,6 @@
   <link href=" {% static 'main/fontawesome/css/all.css' %}" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
-  <style>
-  </style>
 </head>
 <body>
 
@@ -55,9 +53,9 @@
   </header>
 
   <!-- Botón de WhatsApp -->
-  <!-- <a href="#" id="boton-whatsapp" target="_blank">
+  <a href="https://wa.me/59891666082/?text=%C2%A1Hola!%20Quisiera%20pedir..." id="boton-whatsapp" target="_blank">
     <i id="icono-whatsapp" class="fab fa-whatsapp"></i>
-  </a> -->
+  </a>
 
   <!-- Sección "Sobre nosotros" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="nosotros">
@@ -81,35 +79,116 @@
     <section class="container-fluid text-center px-sm-5 px-md-5" id="productos">
       <h3>Productos</h3><hr class="text-divider">
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit, perferendis quam! Delectus nesciunt cupiditate pariatur numquam nostrum libero asperiores, blanditiis ullam dolorem iusto sapiente quidem? Laboriosam dignissimos itaque aperiam laborum!</p>
+      
       {% if destacados %}
-        <div class="card-deck">
-          {% for d in destacados %}
-            <div class="card border-dark">
-              <img class="card-img-top" src={% if d.imagen %}"{{d.imagen.url}}"  {% else %} "" {% endif %} alt="{{d.nombre}}">
-              <div class="card-body">
-                <h5 class="card-title" >{{d.nombre}}</h5>
-                <h6 class="card-subtitle text-muted">${{d.precio}}</h6>
+      {% comment %}
+      <div id="carouselProductos" class="carousel slide w-100" data-ride="carousel">
+        <div class="carousel-inner w-100 row pb-5 grupo-productos" role="listbox">
+
+          <!-- <div class="carousel-item active">
+            <div class="col-md-3">
+              <div class="card text-center shadow-sm border-0">
+                <img class="card-img-top rounded" src="../../../media/asado_pmid9rS.png" alt="imagen1">
+                <div class="card-body p-2">
+                  <p class="card-text text-muted mb-1"><small>Carne vacuna</small></p>
+                  <h4 class="card-title text-danger">Asado</h4>
+                </div>
               </div>
             </div>
-        {% endfor %}
-        {% comment %}
-          <div class="card border-dark">
-            <img class="card-img-top" src="{% static 'main/images/colita_de_cuadril.jpg' %}" alt="colita">
-            <div class="card-body" style="background-color: rgba(255,255,255,.5);">
-              <h5 class="card-title">Colita de cuadril</h5>
-              <h6 class="card-subtitle text-muted">$419</h6>
+          </div> -->
+
+          {% for d in destacados %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <div class="col-md-3">
+              <div class="card text-center shadow-sm border-0">
+                {% if d.precio_oferta %}
+                <div class="badge badge-danger badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> OFERTA</div>
+                {% elif d.destacado %}
+                <div class="badge badge-secondary badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> DESTACADO</div>
+                {% endif %}
+                
+                <img class="card-img-top rounded" src="{% if d.imagen %}{{d.imagen.url}}{% endif %}" alt="{{ d.nombre }}">
+                <div class="card-body p-2">
+                  <p class="card-text text-muted mb-1"><small>{{ d.categoria }}</small></p>
+                  <h4 class="card-title text-danger">{{ d.nombre }}</h4>
+                </div>
+                <ul class="list-group list-group-flush" style="font-size: 1.2rem;">
+                  <li class="list-group-item">
+                  {% if d.precio_oferta %}
+                  <span class="font-weight-bold text-dark"><del class="text-muted">${{ d.precio|floatformat:2 }}</del> ${{ d.precio_oferta | floatformat:2 }}</span>
+                  {% else %}
+                  <span class="font-weight-bold text-dark">${{ d.precio|floatformat:2 }}</span>
+                  {% endif %}
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-          <div class="card border-dark">
-            <img class="card-img-top" src="{% static 'main/images/carne_picada.jpg' %}" alt="carne picada">
-            <div class="card-body">
-              <h5 class="card-title">Carne picada</h5>
-              <h6 class="card-subtitle text-muted">$289</h6>
+          {% endfor %}
+
+          <!-- <div class="carousel-item">
+            <div class="col-md-3">
+              <div class="card text-center shadow-sm border-0">
+                <img class="card-img-top rounded" src="../../../media/milanesas_de_carne.png" alt="imagen8">
+                <div class="card-body p-2">
+                  <p class="card-text text-muted mb-1"><small>Carne vacuna</small></p>
+                  <h4 class="card-title text-danger">Asado</h4>
+                </div>
+              </div>
             </div>
-          </div>
-        {% endcomment %}
+          </div> -->
+
+        </div>
+        <a class="carousel-control-prev w-auto" href="#carouselProductos" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </a>
+        <a class="carousel-control-next w-auto" href="#carouselProductos" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </a>
       </div>
-      <br>
+      {% endcomment %}
+
+      <div class="top-content">
+        <div class="container-fluid">
+          <div id="carouselProductos" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner row w-100 mx-auto" role="listbox">
+              {% for d in destacados %}
+              <div class="carousel-item col-12 col-sm-6 col-md-4 col-lg-3 {% if forloop.first %}active{% endif %}">
+                <div class="card text-center shadow-sm border-0">
+                  {% if d.precio_oferta %}
+                  <div class="badge badge-danger badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> OFERTA</div>
+                  {% elif d.destacado %}
+                  <div class="badge badge-secondary badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> DESTACADO</div>
+                  {% endif %}
+                  
+                  <img class="card-img-top rounded" src="{% if d.imagen %}{{d.imagen.url}}{% endif %}" alt="{{ d.nombre }}">
+                  <div class="card-body p-2">
+                    <p class="card-text text-muted mb-1"><small>{{ d.categoria }}</small></p>
+                    <h4 class="card-title text-danger">{{ d.nombre }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush" style="font-size: 1.2rem;">
+                    <li class="list-group-item">
+                    {% if d.precio_oferta %}
+                    <span class="font-weight-bold text-dark"><del class="text-muted">${{ d.precio|floatformat:2 }}</del> ${{ d.precio_oferta | floatformat:2 }}</span>
+                    {% else %}
+                    <span class="font-weight-bold text-dark">${{ d.precio|floatformat:2 }}</span>
+                    {% endif %}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              {% endfor %}
+            </div>
+            <a class="carousel-control-prev w-auto" href="#carouselProductos" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next w-auto" href="#carouselProductos" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       <a class="btn btn-danger rounded-pill" href="{% url 'productos' %}" role="button">Ver más</a>
       {% endif %}
   </section>
@@ -199,5 +278,6 @@
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="{% static 'main/script.js' %}"></script>
 </body>
 </html>

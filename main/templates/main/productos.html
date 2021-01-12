@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
 </head>
-<body>
+<body background-color="background: #fafafa;">
 
   <!-- Navegación -->
   {% include 'main/navegacion.html' with links_abs='si' %}
@@ -71,14 +71,31 @@
           {% for categoria, valor in productos.items %}
           <div class="container-fluid tab-pane fade {% if forloop.first %}show active{% endif %} px-sm-5" id="{{categoria.texto_etiqueta}}" role="tabpanel" aria-labelledby="{{categoria.texto_etiqueta}}-tab">
             {% if valor %}
-            <div class="card-deck">
-            <!--<div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 card-deck">-->
+            <!-- <div class="card-deck"> -->
+            <div class="row pb-5 mb-4">
               {% for producto in valor %}
-              <div class="card border-dark" >
-                <img class="card-img-top" src="{{producto.imagen.url}}" alt="{{producto.nombre}}">
-                <div class="card-body">
-                  <h5 class="card-title">{{producto.nombre}}</h5>
-                  <h6 class="card-subtitle text-muted">${{producto.precio}}</h6>
+              <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <div class="card text-center shadow-sm border-0">
+                  {% if producto.precio_oferta %}
+                  <div class="badge badge-danger badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> OFERTA</div>
+                  {% elif producto.destacado %}
+                  <div class="badge badge-secondary badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> DESTACADO</div>
+                  {% endif %}
+
+                  <img class="card-img-top rounded" src="{% if producto.imagen %}{{producto.imagen.url}}{% endif %}" alt="{{ producto.nombre }}">
+                  <div class="card-body p-2">
+                    <p class="card-text text-muted mb-1"><small>{{ producto.categoria }}</small></p>
+                    <h4 class="card-title text-danger">{{ producto.nombre }}</h4>
+                  </div>
+                  <ul class="list-group list-group-flush" style="font-size: 1.2rem;">
+                    <li class="list-group-item">
+                    {% if producto.precio_oferta %}
+                    <span class="font-weight-bold text-dark"><del class="text-muted">${{ producto.precio|floatformat:2 }}</del> ${{ producto.precio_oferta | floatformat:2 }}</span>
+                    {% else %}
+                    <span class="font-weight-bold text-dark">${{ producto.precio|floatformat:2 }}</span>
+                    {% endif %}
+                    </li>
+                  </ul>
                 </div>
               </div>
               {% endfor %}

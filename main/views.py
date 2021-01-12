@@ -3,7 +3,7 @@ from .models import *
 from django.template import loader
 
 def index(request):
-  destacados = Producto.objects.all()[:3]
+  destacados = Producto.objects.all()[:8]
   context = {
     'destacados': destacados,
   }

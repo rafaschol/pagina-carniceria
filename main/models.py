@@ -25,7 +25,9 @@ class Categoria(models.Model):
 class Producto(models.Model):
     nombre = models.CharField(max_length=40)
     imagen = models.ImageField(upload_to=nombre_imagen_producto,blank=True,null=True)
-    precio = models.FloatField(blank=True,null=True)
+    precio = models.FloatField(blank=True, null=True)
+    precio_oferta = models.FloatField(blank=True, null=True)
+    destacado = models.BooleanField(default=False)
     categoria = models.ForeignKey(Categoria,on_delete=models.SET_NULL,null=True,blank=True)
 
     class Meta:
