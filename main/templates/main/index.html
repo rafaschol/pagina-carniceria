@@ -219,6 +219,8 @@
     <h3>Contáctanos</h3><hr class="text-divider"><br>
     <div class="row">
       <div class="col-sm-12 col-md-6 py-3">
+
+        <form method="post">
         <p>Realiza tu pedido o consulta.</p><br>
         <!-- <ul style="list-style: none;">
           <li><i class="fas fa-phone-alt" style="font-size:30px;"></i><p>  091666082</p></li>
@@ -227,28 +229,28 @@
         <br> -->
         <form class="text-left">
           <div class="form-row">
-
+            {% csrf_token %} 
             <div class="form-group col-md-6">
-              <label for="fnombre">Nombre</label>
-              <input type="text" class="form-control" id="fnombre" placeholder="Nombre">
+              <label for="{{ form.nombre.id_for_label }}"> Nombre: </label>
+              {{ form.nombre }}
             </div>            
 
             <div class="form-group col-md-6">
-              <label for="fapellido">Apellido</label>
-              <input type="text" class="form-control" id="fapellido" placeholder="Apellido">
+              <label for="{{ form.apellido.id_for_label }}">Apellido</label>
+              {{ form.apellido }}
             </div>
 
           </div>
           
           
           <div class="form-group">
-            <label for="fmail">Email</label>
-            <input type="email" class="form-control" id="fmail" placeholder="Email">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
           </div>
 
           <div class="form-group">
-            <label for="fmensaje">Mensaje</label>
-            <textarea class="form-control" id="fmensaje" cols="40" rows="5" placeholder="Mensaje"></textarea>            
+            <label for="{{ form.mensaje.id_for_label }}">Mensaje</label>
+            {{ form.mensaje }}         
           </div>
 
           <!-- <br> -->
