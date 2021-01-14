@@ -1,7 +1,7 @@
 {% load static %}
 <nav class="navbar {{ posicion|default:'' }} navbar-expand-lg navbar-{{ colores|default:'dark'}} bg-{{ colores|default:'dark' }}">
   <div class="container">
-  <a class="navbar-brand" href="#">
+  <a href="{% url 'index' %}" class="navbar-brand" href="#">
     <img src="{% static 'main/images/logo_v2.png' %}" height="50" alt="logo">
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navegacion">

@@ -107,7 +107,7 @@
                 <div class="badge badge-secondary badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> DESTACADO</div>
                 {% endif %}
                 
-                <img class="card-img-top rounded" src="{% if d.imagen %}{{d.imagen.url}}{% endif %}" alt="{{ d.nombre }}">
+                <img class="card-img-top rounded" src="{% if d.imagen and d.imagen.url != ''  %}{{d.imagen.url}}{% else %} {% static 'main/images/Default.jpeg' %}{% endif %}" alt="{{ d.nombre }}">
                 <div class="card-body p-2">
                   <p class="card-text text-muted mb-1"><small>{{ d.categoria }}</small></p>
                   <h4 class="card-title text-danger">{{ d.nombre }}</h4>
@@ -161,7 +161,7 @@
                   <div class="badge badge-secondary badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> DESTACADO</div>
                   {% endif %}
                   
-                  <img class="card-img-top rounded" src="{% if d.imagen %}{{d.imagen.url}}{% endif %}" alt="{{ d.nombre }}">
+                  <img class="card-img-top rounded" src="{% if d.imagen %}{{d.imagen.url}} {% else %} {% static 'main/images/Default.jpeg' %} {% endif %}" alt="{{ d.nombre }}">
                   <div class="card-body p-2">
                     <p class="card-text text-muted mb-1"><small>{{ d.categoria }}</small></p>
                     <h4 class="card-title text-danger">{{ d.nombre }}</h4>
@@ -202,10 +202,10 @@
     <p>Puedes comunicarte con nosotros por llamada telefónica o por Whatsapp, nuestro horario de atención es de 8:00hs a 21:00 hs de Lunes a Sábado y 8:00hs a 14:00hs los Domingos. </p>
     <p>A continuación, haz click en el medio de comunicación que deseés y serás redireccionado directamente a realizar el pedido.</p>
     <div class="d-flex flex-row ">
-      <div class="col-md-6 col-sm-6 col-xs-12 d-flex justify-content-end">
+      <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-end">
         <a href="tel:+59891666082" class="btntel"><i class="fas fa-phone-alt"></i></a>
       </div>
-      <div class="col-md-6 col-sm-6 col-xs-12 d-flex justify-content-left">
+      <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-left">
         <a href="https://api.whatsapp.com/send/?phone=59891666082&text=%C2%A1Hola%21+Quisiera+pedir...&app_absent=0"  class="btnwhats" width="33px" ><i class="fab fa-whatsapp" ></i> </a>
       </div>
     </div>
