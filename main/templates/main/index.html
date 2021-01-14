@@ -6,14 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
   <link href=" {% static 'main/fontawesome/css/all.css' %}" rel="stylesheet">
+  <script src=" {% static 'main/jquery-3.5.1.js' %}"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
 </head>
 <body>
-
   <!-- Navegación -->
   {% include 'main/navegacion.html' with posicion='navbar-absolute' links_abs='no' %}
-
   <!-- Slider -->
   <header>
     <div id="carouselImagenes" class="carousel slide carousel-fade" data-ride="carousel">
@@ -62,7 +61,7 @@
     <h3>Sobre nosotros</h3><hr class="text-divider">
     <div class="row">
       <div class="col-sm-8 d-flex align-items-center">
-        <div>
+        <div>          
           <p><strong>Carnicería La Once</strong> se instaló en 2017 sobre la Ruta 11 cerca de la Ruta Interbalnearia, en una ubicación ideal para la población de los alrededores y los turistas que van de camino a sus vacaciones.</p>
           <p>Nuestro equipo crece año a año, sobre las mismas bases que el primer día: dar una excelente atención a todos los clientes, priorizando en nuestro personal la calidad humana ante otros aspectos.</p>
           <p>Nos centramos en ofrecer productos de calidad, por lo cuál somos proveedores de gran cantidad de restaurantes y servicios gastronómicos de la zona. La mayor muestra de lo que nuestro negocio representa es la satisfacción de nuestros clientes.</p>
@@ -217,6 +216,15 @@
   <!-- Sección "Contactanos" -->
   <section class="container-fluid text-center px-sm-5 px-md-5" id="contacto">
     <h3>Contáctanos</h3><hr class="text-divider"><br>
+    {% if messages %}
+      {% for message in messages %}
+        {% if message.tags == 'error' %}
+          <div id="alerta" class="alert alert-warning " runat="server" style="background-color:#dc3545;border:none;color:white;" visible="true">{{ message }}</div>
+        {% else %}
+          <div id="alerta" class="alert alert-warning " runat="server" style="background-color:#25d366;;border:none;color:white;" visible="true">{{ message }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endif %}
     <div class="row">
       <div class="col-sm-12 col-md-6 py-3">
 
@@ -261,7 +269,7 @@
             <div class="col-12">
               <button type="submit" class="btn btn-danger">Enviar</button>
             </div>
-          </div>
+          </div><br>
         </form>
       </div>
 
