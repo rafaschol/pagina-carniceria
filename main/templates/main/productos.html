@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="{% static 'main/estilos.css' %}">
 </head>
-<body background-color="background: #fafafa;">
+<body style="background-color: #fafafa;">
 
   <!-- Navegación -->
   {% include 'main/navegacion.html' with links_abs='si' %}
@@ -55,13 +55,13 @@
     <h1 class="my-4">Productos</h1>
       {% if productos %}
       <div id="tabs-productos">
-        <ul class="nav nav-tabs nav-justified flex-column flex-sm-row" id="categorias" role="tablist">
+        <ul class="nav nav-tabs nav-justified" id="categorias" role="tablist">
           {% for categoria in productos %} 
           <li class="nav-item">
-            <a class="nav-link flex-sm-fill text-sm-center {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+            <a class="nav-link rounded-pill flex-sm-fill text-sm-center {% if forloop.first %}active{% endif %}" id="{{categoria.texto_etiqueta}}-tab" data-toggle="tab" href="#{{categoria.texto_etiqueta}}" role="tab" aria-controls="{{categoria.texto_etiqueta}}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
               <img class="icono-active" src="{{categoria.icono_activo.url}}" width="40px">
               <img class="icono-disabled" src="{{categoria.icono.url}}" width="40px">      
-              <p>{{categoria.nombre}}</p>
+              <p class="font-weight-bold">{{categoria.nombre}}</p>
             </a>
           </li>
           {% endfor %}
@@ -72,10 +72,10 @@
           <div class="container-fluid tab-pane fade {% if forloop.first %}show active{% endif %} px-sm-5" id="{{categoria.texto_etiqueta}}" role="tabpanel" aria-labelledby="{{categoria.texto_etiqueta}}-tab">
             {% if valor %}
             <!-- <div class="card-deck"> -->
-            <div class="row pb-5 mb-4">
+            <div class="row pb-5">
               {% for producto in valor %}
-              <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-                <div class="card text-center shadow-sm border-0">
+              <div class="col-lg-3 col-md-6 mb-lg-0 d-flex align-self-stretch">
+                <div class="card text-center shadow-sm border-0 mb-4">
                   {% if producto.precio_oferta %}
                   <div class="badge badge-danger badge-producto p-2 font-weight-light"><span class="fa fa-star fa-fw"></span> OFERTA</div>
                   {% elif producto.destacado %}
@@ -87,13 +87,14 @@
                     <p class="card-text text-muted mb-1"><small>{{ producto.categoria }}</small></p>
                     <h4 class="card-title text-danger">{{ producto.nombre }}</h4>
                   </div>
-                  <ul class="list-group list-group-flush" style="font-size: 1.2rem;">
+                  <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                     {% if producto.precio_oferta %}
-                    <span class="font-weight-bold text-dark"><del class="text-muted">${{ producto.precio|floatformat:2 }}</del> ${{ producto.precio_oferta | floatformat:2 }}</span>
+                    <span class="font-weight-bold text-dark" style="font-size: 1.4rem;"><del class="text-muted">${{ producto.precio|floatformat:2 }}</del> ${{ producto.precio_oferta | floatformat:2 }}</span>
                     {% else %}
-                    <span class="font-weight-bold text-dark">${{ producto.precio|floatformat:2 }}</span>
+                    <span class="font-weight-bold text-dark" style="font-size: 1.4rem;">${{ producto.precio|floatformat:2 }}</span>
                     {% endif %}
+                    <p class="card-text text-muted"><small style="font-size: 0.8rem;">{% if producto.medida == 'kg' %}por kilogramo{% else %}por unidad{% endif %}</small></p>
                     </li>
                   </ul>
                 </div>
@@ -107,19 +108,6 @@
           {% endfor %}
         </div>
 
-        <!-- <div class="card-deck">
-          {% for p in productos %}
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-            <div class="card border-dark" >
-              <img class="card-img-top" src="{{p.imagen.url}}" alt="{{p.nombre}}">
-              <div class="card-body">
-                <h5 class="card-title">{{p.nombre}}</h5>
-                <h6 class="card-subtitle text-muted">${{p.precio}}</h6>
-              </div>
-            </div>
-          </div>
-          {% endfor %}
-        </div> -->
       </div>
     {% endif %}
   </section>

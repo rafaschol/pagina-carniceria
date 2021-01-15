@@ -23,15 +23,18 @@ class Categoria(models.Model):
 
 
 class Producto(models.Model):
+    OPCIONES_MEDIDA = [('kg', 'kilogramos'), ('un', 'unidades')]
+
     nombre = models.CharField(max_length=40)
     imagen = models.ImageField(upload_to=nombre_imagen_producto,blank=True,null=True)
     precio = models.FloatField(blank=True, null=True)
     precio_oferta = models.FloatField(blank=True, null=True)
     destacado = models.BooleanField(default=False)
     categoria = models.ForeignKey(Categoria,on_delete=models.SET_NULL,null=True,blank=True)
+    medida = models.TextField(choices=OPCIONES_MEDIDA, default='kg')
 
     class Meta:
-        ordering = ['nombre']
+        ordering = ['-destacado', 'nombre']
 
     def __str__(self):
         return self.nombre

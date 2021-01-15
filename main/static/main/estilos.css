@@ -99,11 +99,33 @@ h3{
   font-size:45px;
 }
 
-/* #tabs-productos .nav-tabs {
+#tabs-productos .nav-tabs {
   border: 1px solid transparent;
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+#tabs-productos .nav-tabs .nav-link {
+  white-space: nowrap;
+}
+
+#tabs-productos .nav-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 #tabs-productos .nav-link {
+  /* border-radius: 20px; */
+  margin: 5px;
+  color: black;
+}
+
+#tabs-productos .nav-link.active {
+  border-bottom: 1px solid #dee2e6;
+  color: #dc3545;
+}
+
+/* #tabs-productos .nav-link {
   border: 1px solid transparent;
 } */
 

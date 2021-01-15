@@ -84,18 +84,6 @@
       <div id="carouselProductos" class="carousel slide w-100" data-ride="carousel">
         <div class="carousel-inner w-100 row pb-5 grupo-productos" role="listbox">
 
-          <!-- <div class="carousel-item active">
-            <div class="col-md-3">
-              <div class="card text-center shadow-sm border-0">
-                <img class="card-img-top rounded" src="../../../media/asado_pmid9rS.png" alt="imagen1">
-                <div class="card-body p-2">
-                  <p class="card-text text-muted mb-1"><small>Carne vacuna</small></p>
-                  <h4 class="card-title text-danger">Asado</h4>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
           {% for d in destacados %}
           <div class="carousel-item {% if forloop.first %}active{% endif %}">
             <div class="col-md-3">
@@ -125,18 +113,6 @@
           </div>
           {% endfor %}
 
-          <!-- <div class="carousel-item">
-            <div class="col-md-3">
-              <div class="card text-center shadow-sm border-0">
-                <img class="card-img-top rounded" src="../../../media/milanesas_de_carne.png" alt="imagen8">
-                <div class="card-body p-2">
-                  <p class="card-text text-muted mb-1"><small>Carne vacuna</small></p>
-                  <h4 class="card-title text-danger">Asado</h4>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
         </div>
         <a class="carousel-control-prev w-auto" href="#carouselProductos" role="button" data-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -165,13 +141,14 @@
                     <p class="card-text text-muted mb-1"><small>{{ d.categoria }}</small></p>
                     <h4 class="card-title text-danger">{{ d.nombre }}</h4>
                   </div>
-                  <ul class="list-group list-group-flush" style="font-size: 1.2rem;">
+                  <ul class="list-group list-group-flush">
                     <li class="list-group-item">
                     {% if d.precio_oferta %}
-                    <span class="font-weight-bold text-dark"><del class="text-muted">${{ d.precio|floatformat:2 }}</del> ${{ d.precio_oferta | floatformat:2 }}</span>
+                    <span class="font-weight-bold text-dark" style="font-size: 1.4rem;"><del class="text-muted">${{ d.precio|floatformat:2 }}</del> ${{ d.precio_oferta | floatformat:2 }}</span>
                     {% else %}
-                    <span class="font-weight-bold text-dark">${{ d.precio|floatformat:2 }}</span>
+                    <span class="font-weight-bold text-dark" style="font-size: 1.4rem;">${{ d.precio|floatformat:2 }}</span>
                     {% endif %}
+                    <p class="card-text text-muted"><small style="font-size: 0.8rem;">{% if d.medida == 'kg' %}por kilogramo{% else %}por unidad{% endif %}</small></p>
                     </li>
                   </ul>
                 </div>
