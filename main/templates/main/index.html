@@ -177,13 +177,12 @@
     <p>¡Aceptamos débito y crédito!</p>
     <p>Puedes comunicarte con nosotros por llamada telefónica o por Whatsapp, nuestro horario de atención es de 8:00hs a 21:00 hs de Lunes a Sábado y 8:00hs a 14:00hs los Domingos. </p>
     <p>A continuación, haz click en el medio de comunicación que deseés y serás redireccionado directamente a realizar el pedido.</p>
-    <div class="d-flex flex-row ">
-      <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-end">
-        <a href="tel:+59891666082" class="btntel"><i class="fas fa-phone-alt"></i></a>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 col-xs-12 justify-content-end">
+        <button class="btntel float-sm-right" role="link" onclick="window.location='tel:+59891666082'"><i class="fas fa-phone-alt"></i></button>
       </div>
-      <div class="col-md-6 col-sm-12 col-xs-12 d-flex justify-content-left">
-        <a href="https://api.whatsapp.com/send/?phone=59891666082&text=%C2%A1Hola%21+Quisiera+pedir...&app_absent=0"  class="btnwhats" width="33px" ><i class="fab fa-whatsapp" ></i> </a>
-      </div>
+      <div class="col-md-6 col-sm-12 col-xs-12 mt-sm-0 mt-3 justify-content-left">
+        <button class="btnwhats float-sm-left " role="link" onclick="window.location='https://api.whatsapp.com/send/?phone=59891666082&text=%C2%A1Hola%21+Quisiera+pedir...&app_absent=0'"><i class="fab fa-whatsapp" ></i></button></div>
     </div>
     <br>
     </p> ¡Si te encuentras dentro del rango de envío te lo llevamos directo a tu casa!</p>

@@ -49,17 +49,18 @@ section{
 
 .btntel{
   width:8em;
-  font-size:25px;
+  font-size:2em;
   font-weight: bold;
   background-color:#aad3df;
   border-radius:0.5em;
   border:1px;
   color:white;
 }
+
 .btnwhats{
   width:8em;
   font-weight: bold;
-  font-size:25px;
+  font-size:2em;
   background-color:#25d366;
   border:1px;
   border-radius:0.5em;
@@ -98,11 +99,33 @@ h3{
   font-size:45px;
 }
 
-/* #tabs-productos .nav-tabs {
+#tabs-productos .nav-tabs {
   border: 1px solid transparent;
+  width: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+#tabs-productos .nav-tabs .nav-link {
+  white-space: nowrap;
+}
+
+#tabs-productos .nav-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 #tabs-productos .nav-link {
+  /* border-radius: 20px; */
+  margin: 5px;
+  color: black;
+}
+
+#tabs-productos .nav-link.active {
+  border-bottom: 1px solid #dee2e6;
+  color: #dc3545;
+}
+
+/* #tabs-productos .nav-link {
   border: 1px solid transparent;
 } */
 
