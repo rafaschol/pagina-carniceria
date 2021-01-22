@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'wtbv#n5ka=ordg11u(359dc7$*z1^l0gua2a4b#$b(767=7^3&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["31.220.49.42", "carnicerialaonce.com.uy", "www.carnicerialaonce.com.uy"]
 
